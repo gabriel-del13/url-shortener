@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {  
+    "build": "tsc && cp -r dist/handlers ../infrastructure/backend-dist/",
+    "build:lambda": "esbuild src/handlers/redirect.ts src/handlers/crud.ts --bundle --platform=node --target=node20 --outdir=dist/handlers --external:@aws-sdk/*",    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "aws-cdk-lib": "^2.248.0",
+    "constructs": "^10.6.0",
+    "nanoid": "^3.3.11"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.161",
+    "@types/node": "^25.5.2",
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.2"
+  }
+}
